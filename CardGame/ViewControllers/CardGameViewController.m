@@ -46,10 +46,13 @@
             [sender setTitle:@"" forState:UIControlStateNormal];
         } else {
             Card *playingCard = [self.playingCardDeck drawRandomCard];
-            UIImage *cardImage = [UIImage imageNamed:@"cardfront"];
-            [sender setBackgroundImage:cardImage forState:UIControlStateNormal];
-            [sender setTitle:[playingCard contents] forState:UIControlStateNormal];
-            self.flipCount++;
+            if (playingCard) {
+                UIImage *cardImage = [UIImage imageNamed:@"cardfront"];
+                [sender setBackgroundImage:cardImage forState:UIControlStateNormal];
+                [sender setTitle:[playingCard contents] forState:UIControlStateNormal];
+                self.flipCount++;
+            }
+            
         }
     } completion:nil];
     
